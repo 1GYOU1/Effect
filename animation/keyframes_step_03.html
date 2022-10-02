@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    @keyframes gif_test {
+        0%{background-position:0 0;}
+        100% { background-position: -5040px 0; }
+    }
+    .test {
+        width: 1260px;
+        height: 870px;
+        background: url('//gscdn.hackers.co.kr/pass/img/event/2021/04/0500/pc/type3/v1/test.png') no-repeat 0 0;
+        background-size: 400%;
+        animation: gif_test 3s infinite steps(4);
+        margin:0 auto;
+    }
+
+    @keyframes gif_test2 {
+        0%{background-position:0 0;}
+        100% { background-position: -6650px 0; }
+    }
+    .test2 {
+        width: 950px;
+        height: 567px;
+        background: url('//gscdn.hackers.co.kr/pass/img/event/2021/04/0500/pc/type3/v1/test2.png') no-repeat 0 0;
+        background-size: 700%;
+        animation: gif_test2 5s infinite steps(7);
+        margin:20px auto;
+    }
+    </style>
+</head>
+<body>
+    <div class="test"></div>
+    <div class="test2"></div>
+</body>
+<script>
+
+</script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+</html>

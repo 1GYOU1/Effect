@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        .wrap{width:auto;height:auto;}
+        .test3{height:100vh;background-color:honeydew;display: flex;align-items: center;justify-content: center;}
+        .test3 .count{font-size: 50px;font-weight: bold;color:#3d3d3d;text-align: center;}
+    </style>
+</head>
+
+
+<body>
+    <div class="wrap">
+        <div class="test3">
+            <div class="num_wrap">
+                <div>
+                    <p class="count" data-count="501480" data-count-type="price">0</p>
+                    <p class="count" data-count="100" data-count-type="percent">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+<script>
+
+$(document).ready(function(){
+
+count();
+
+});
+
+
+var once = true;
+var countReg = new RegExp(/\B(?=(\d{3})+(?!\d))/, "g");
+
+function count () {
+    if(once) {
+        $('.count').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).data('count')
+            }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function (now) {
+                    if($(this).data('count-type') === 'price') {
+
+                        $(this).text((Math.ceil(now).toString().replace(countReg, ",")) + '원')
+
+                    }else if($(this).data('count-type') === 'percent'){
+
+                        $(this).text((Math.ceil(now).toString().replace(countReg, ",")) + '%')
+                    }
+
+                }
+            });
+        });
+    }
+
+    once = false;
+}
+</script>
+
+
+</html>

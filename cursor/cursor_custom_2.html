@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko" class="wf-notosanskr-n4-active wf-montserrat-n4-active wf-active has-scroll-init has-scroll-smooth" data-arp-injected="true">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1gyou1</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.8.0/gsap.min.js"></script>
+
+    <style>
+        *{padding:0;margin:0;}
+        .wrap{width: 100%;height:200vh;margin:0 auto;background-color: lightgoldenrodyellow;}
+
+        #custom_cursor{position: fixed;top: 0;left: 0;z-index: 99999;pointer-events: none;opacity:0;}
+        #custom_cursor:not(.small){width: 60px;height: 60px;}
+
+        .custom_cursor_inner {display: block;width: 100%;height: 100%;position: relative;top: 50%;left: 50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);}
+        .custom_cursor_circle{display: block;width: 0;height: 0;position: absolute;top: 0;left: 0;border-radius: 50%;-webkit-transform: translate(-50%, -50%);-ms-transform: translate(-50%, -50%);transform: translate(-50%, -50%);overflow: hidden;width: 15px;height: 15px;background: rgba(251,57,73,0.5);z-index: 1;}
+
+        #custom_cursor.on{mix-blend-mode: difference;}
+        #custom_cursor.on .custom_cursor_circle{background:#fff;}
+        #custom_cursor_text.on .custom_cursor_inner{opacity:0;}
+        #custom_cursor_text .custom_cursor_inner{transition:0.3s;}
+
+		.hamburger_btn{width:40px;height: 40px;display: block;}
+		.hamburger_btn span{display:block; width:100%;height:2px;background:#fff;}
+		.hamburger_btn span:nth-child(2){margin: 6px 0;width: calc(100% - 10px);}
+		.hamburger_btn span:nth-child(3){width: calc(100% - 5px);}
+		
+
+    </style>
+</head>
+<body>
+    <div class="wrap">
+
+        <div id="custom_cursor" style="transform: translate(1074px, 2px); opacity: 1;" class="">
+            <div class="custom_cursor_inner">
+                <div class="custom_cursor_circle" style="opacity: 1; visibility: inherit; height: 15px; width: 15px;">
+                </div>
+            </div>
+        </div>
+
+		<button type="button" class="hamburger_btn open custom_mousemove">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+
+		<ul class="sub_menu dep2 txt1">
+			<li><a href="/m11.php" class="custom_mousemove small_h">루이셀</a></li>
+			<li><a href="/m12.php" class="custom_mousemove small_h">로코블란코</a></li>
+			<li><a href="/m13.php" class="custom_mousemove small_h">그리앙스</a></li>
+		</ul>
+
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+    <!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+    <script>
+
+function custom_cursor(){
+
+
+	var $cursor_primary = $('#custom_cursor');
+	var $circle = $cursor_primary.find('.custom_cursor_circle');
+
+	$('body').mousemove(function(e) {
+		tl.to($cursor_primary, 0.7, {opacity:1, x: e.clientX,y: e.clientY,ease: Power3.easeOut});
+	});
+
+
+
+	$(document).on('mouseenter', '.custom_mousemove', function(){
+		$(this).addClass('move_on');
+		var $this = $(this);
+		var words = ( $this.data('hover') != undefined ) ? $this.data('hover') : '';
+		var size = ( $this.data('size') != undefined ) ? $this.data('size') : '100%';
+
+		if( $this.hasClass('small_h') ){
+			$cursor_primary.addClass('small');
+		}else{
+			$cursor_primary.removeClass('small');
+		}
+		tl.killTweensOf($circle);
+		tl.to($circle, .3, {width: size,height: size,autoAlpha: 1,ease: Power0.easeNone});
+	});
+
+	$(document).on('mouseleave', '.custom_mousemove', function(){
+		var $this = $(this);
+		tl.killTweensOf($circle);
+		tl.to($circle, .2, {width: '15px',height: '15px',ease: Power0.easeNone});
+		$(this).removeClass('move_on');
+	});
+
+	
+
+	$('.follow_btn').each(function(){
+		var $this = $(this);
+		var $pointer = $this.find('.i');
+		var pointer_size = ( $this.data('size') != undefined ) ? $this.data('size') : parseInt($this.width());
+		var $pointer_extend = null;
+		if( $this.find('.follow').length > 0 ) {
+			$pointer_extend = $this.find('.follow');
+		}
+		$this.on({
+			mouseenter: function(){
+				$this.bind('mousemove', function(e){
+					var center_x = $pointer.offset().left + $pointer.width()/10;
+					var center_y = $pointer.offset().top + $pointer.height()/10;
+					var tween_x = e.pageX - center_x;
+					var tween_y = e.pageY - center_y;
+					if( $pointer_extend != null ) {
+						tl.to($pointer_extend, .3, {x: tween_x / 5.0,y: tween_y /5.0,ease: Power3.easeOut});
+					}
+				});
+			},
+			mouseleave: function(){
+				if( $pointer_extend != null ) {
+					tl.to($pointer_extend, .2, {x: 0,y: 0,ease: Power0.easeNone});
+				}
+
+				$this.unbind('mousemove');
+			}
+		});
+	});
+	
+}
+
+
+$(function(){
+	tl = TweenMax;
+	custom_cursor();
+});
+
+    </script>
+</body>
+</html>

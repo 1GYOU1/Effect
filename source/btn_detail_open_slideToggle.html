@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        button{display:block;margin:0 auto;width:1002px;height:50px;line-height:50px;background:#a6a6a6;color:#fff;}
+        .commu_wrap{margin:0 auto;width:960px;height:auto;padding:20px 21px;background:#e6e6e6;text-align:left;}
+        
+    </style>
+</head>
+<body>
+
+    <button onclick="$(this).next().slideToggle()" class="btn_detail_open"><span class="arr">▲</span> 이벤트 유의사항 <span class="arr">▲</span></button>
+    <div class="commu_wrap">
+            1. 소문내기 링크는 반드시 복사된 링크를 사용해주셔야 인정됩니다. 소문내기 문안은 필요시 변경해서 사용 가능합니다.
+        <br>2. 오픈채팅방의 경우 50명 이상 참여 중인 채팅방에 소문내주셔야 인정됩니다.
+        <br>3. 여러 ID를 활용하여 이벤트 참여하였을 경우 혜택은 중복 발송되지 않습니다.
+        <br>4. 소문내기 참여 이미지가 조건에 부합하지 않을 경우 혜택이 제공되지 않습니다.
+        <br>5. 허위 참여시 혜택은 제공되지 않습니다.
+        <br>6. 관리자가 이미지 등록 확인 후 조건 부합하는 회원 대상으로 월말에 일괄 제공됩니다.
+    </div>
+
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+<script>
+    $('.btn_detail_open').on("click",function(){
+    if($(this).hasClass("on")){
+        $(this).removeClass("on");
+        $(this).children(".arr").text("▲");
+    }else{
+        $(this).addClass("on");
+        $(this).children(".arr").text("▼");
+    }
+    $(this).parent().parent().siblings('.bx_agree_info').slideToggle();
+    return false;
+});
+</script>
+</html>

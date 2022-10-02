@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1gyou1</title>
+    <style>
+		*{margin:0;padding:0;}
+        .wrap{width:100%;height:100%;}
+        .wrap .inner{width:1000px;margin:0 auto;}
+        
+        .header{width:1000px;height:500px;background-color:honeydew}
+        .cont01{width:1000px;height:5000px;background-color:lemonchiffon;position:relative;}
+		.cont02{width:1000px;height:5000px;background-color:lemonchiffon;position:relative;}
+		.footer{width:1000px;height:500px;background-color:lavenderblush}
+
+		.sticky{position:sticky;top:0;left:0;width:100%;height:100vh;overflow: hidden;}
+
+        .left_box{width:500px;position:absolute;top:0;left:0;background-color:lightcyan;height:100%;}
+        .right_box{width:500px;position:absolute;top:0;right:0;background-color:lightsteelblue;height:100%;}
+
+		.top_box{width:100%;height:50%;position:absolute;top:0;left:0;background-color:lightpink;}
+		.bottom_box{width:100%;height:50%;position:absolute;bottom:0;left:0;background-color:lightcoral;}
+
+		.cont02 .left_box{background-color:lightpink;}
+		.cont02 .right_box{background-color:coral;}
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="inner">
+            <div class="header">1gyou1 header</div>
+
+            <div class="cont01">
+				<div class="sticky" data-scrollAct="true">
+					<div class="left_box">left_box</div>
+					<div class="right_box">right_box</div>
+					<div class="back_box">
+						<strong>1gyou1</strong>
+					</div>
+				</div>
+            </div>
+
+			<div class="cont02">
+				<div class="sticky" data-scrollAct="true">
+					<div class="top_box">left_box</div>
+					<div class="bottom_box">right_box</div>
+					<div class="back_box">
+						<strong>1gyou1</strong>
+					</div>
+				</div>
+            </div>
+
+            <div class="footer">1gyou1 footer</div>
+        </div>
+    </div>
+
+    <script>
+
+		//.active css 수정하기 ★★★★ 220809
+
+		(function(){
+
+			let ScrollAct = document.querySelectorAll('[data-scrollAct="true"]');		
+
+			function setScrollFn(){
+				let windowHeight = window.innerHeight;//1232
+
+				let cont = [...ScrollAct].map(function(v){
+					
+					contVal = v.getBoundingClientRect();
+					if(contVal.top <= windowHeight * 0.1) {
+						v.classList.add('active');
+						scrollEvt_1();
+						console.log(windowHeight * 0.1)
+
+					}
+				});
+			}
+
+			window.addEventListener('scroll',function(){
+				setScrollFn();
+			})
+
+		})();
+    </script>
+</body>
+</html>

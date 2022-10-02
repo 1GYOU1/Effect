@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .wrap .box_01{height:1000px;background-color:pink}
+        .wrap .box_02{height:1000px;background-color:coral}
+        .wrap .box_03{height:1000px;background-color:lavender}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <a href="#;" onclick="lazy_move('.box_03');">
+            <img src="https://gscdn.hackers.co.kr/champ/img/event/common/mp3/japan/22051900/pc/type1/v1/btn_mp3_01.png" alt="">
+        </a>
+        <div class="box_01"></div>
+        <div class="box_02"></div>
+        <div class="box_03"></div>
+    </div>
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+<script>
+    //lazy load scroll move
+function lazy_move(obj, recurs){
+    var $target = $(obj);
+
+    $('html, body').animate(
+        {
+            scrollTop: $target.offset().top,
+        }, {
+            duration: 800,
+            step: function (now, fx) {
+                var newOffset = $target.offset().top;
+
+                if (fx.end !== newOffset)
+                    fx.end = newOffset;
+            },
+            complete: function (){ //lazy_move가 제대로 안걸렸을 때
+
+                // 반복 호출로 페이지 상단으로 이동이 불가한 오류로
+                // recurs 제어 추가(한번만 호출)
+                if((parseInt($(document).scrollTop()) != parseInt($target.offset().top))
+                    && recurs === undefined){
+                    lazy_move(obj, true);
+                }
+            }
+        }
+    );
+}
+</script>
+</html>

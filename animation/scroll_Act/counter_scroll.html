@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        *{margin:0;padding:0;}
+        .wrap{width:auto;height:auto;}
+        .test1{height:100vh;background-color:pink}
+        .test2{height:100vh;background-color:skyblue}
+        .test3{height:100vh;background-color:honeydew;display: flex;align-items: center;justify-content: center;}
+
+        .test3 .count{font-size: 50px;font-weight: bold;color:#3d3d3d;text-align: center;}
+    </style>
+</head>
+
+
+<body>
+    <div class="wrap">
+        <div class="test1"></div>
+        <div class="test2"></div>
+        <div class="test3" data-scroll="true" data-scroll-once="true">
+            <div class="num_wrap">
+                <div>
+                    <p class="count" data-count="501480" data-count-type="price">0</p>
+                    <p class="count" data-count="100" data-count-type="percent">0</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+<script>
+
+var once = true;
+var countReg = new RegExp(/\B(?=(\d{3})+(?!\d))/, "g");
+
+function count () {
+    if(once) {
+        $('.count').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).data('count')
+            }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function (now) {
+                    if($(this).data('count-type') === 'price') {
+
+                        $(this).text((Math.ceil(now).toString().replace(countReg, ",")) + '원')
+
+                    }else if($(this).data('count-type') === 'percent'){
+
+                        $(this).text((Math.ceil(now).toString().replace(countReg, ",")) + '%')
+                    }
+
+                }
+            });
+        });
+    }
+
+    once = false;
+}
+
+//type8_ani scrollEvent
+var scrollEvtCont = $('[data-scroll]');
+
+function hackersScrollFnc() {
+    const point = window.innerHeight;
+
+    scrollEvtCont.each(function(idx, item) {
+        const rect = item.getBoundingClientRect();
+
+        if(rect.top <= point - point * .1) {
+            item.classList.add('on');
+            if($(item).find('.count').length !== 0) {
+                setTimeout(function() {
+                    count();
+                }, 1000)
+            }
+        }
+
+        if(item.dataset.scrollOnce === 'false') {
+            if((rect.top < point * -1 || rect.top > point)) {
+                item.classList.remove('on');
+            }
+        }
+    });
+}
+
+$(function() {
+    $(window).on('scroll', function() {
+        hackersScrollFnc();
+    });
+});
+</script>
+
+
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quick_banner_animation_02</title>
+    <style>
+    *{margin: 0;padding: 0;}
+    .wrap{height:auto;}
+    .wrap img{vertical-align: top;}
+    .inner{width: 1000px;margin: 0 auto;text-align: center;}
+    .p_r{position:relative;}
+    
+    .main_visual{width:100%;height:800px;background-color: plum;}
+    .cont01{width:100%;height:800px;background-color: pink;}
+    .cont02{width:100%;height:800px;background-color: azure;}
+    .cont03{width:100%;height:800px;background-color: skyblue;}
+    .cont04{width:100%;height:800px;background-color: honeydew;}
+    .cont05{width:100%;height:800px;background-color: mediumaquamarine;}
+    .cont06{width:100%;height:800px;background-color: yellowgreen;}
+    /*quick*/
+    .right_quick{position:fixed;top:100px;right:150px;z-index:5;cursor: pointer;display: none;}
+    .quick{width:195px;height:59px;overflow-x:hidden;background:url('//gscdn.hackers.co.kr/champ/img/china/event/2020/03/2401/pc/type2/v2/quick_right.png')left top no-repeat;background-size:200%;}
+    .quick2{background-position-y:-59px;}
+    .quick3{background-position-y:-118px;}
+    .quick4{background-position-y:-177px;}
+    .quick5{background-position-y:-240px;}
+    .quick.on,
+    .quick:hover{background-position-x:right;}
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="main_visual"></div>
+        <!-- lazy_move 영역 -->
+        <div class="cont01"></div>
+        <div class="cont02"></div>
+        <div class="cont03"></div>
+        <div class="cont04"></div>
+        <div class="cont05"></div>
+         <!-- //lazy_move 영역 -->
+        <div class="cont06"></div>
+    </div>
+    <!--퀵배너-->
+    <div class="right_quick">
+        <ul>
+            <li class="quick quick1 on" onclick="lazy_move('.cont01')"></li>
+            <li class="quick quick2" onclick="lazy_move('.cont02')"></li>
+            <li class="quick quick3" onclick="lazy_move('.cont03')"></li>
+            <li class="quick quick4" onclick="lazy_move('.cont04')"></li>
+            <li class="quick quick5" onclick="lazy_move('.cont05')"></li>
+        </ul>
+    </div>
+    <!--//퀵배너-->
+
+</body>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+
+<script>
+
+    //quick_right start ↓↓
+	var _my_scroll_top = 0;
+var _quick_scroll_top1 = 0;
+var _quick_scroll_top2 = 0;
+var _quick_scroll_top3 = 0;
+var _quick_scroll_top4 = 0;
+var _quick_scroll_top5 = 0;
+
+//스크롤이벤트
+$(window).scroll(function () {
+
+    /* 카운팅 */
+    _my_scroll_top = $(document).scrollTop();  //나의위치
+    _quick_scroll_top1 = $('.cont01').offset().top-1; //quick1 영역 위치
+    _quick_scroll_top2 = $('.cont02').offset().top-1; //quick2 영역 위치
+    _quick_scroll_top3 = $('.cont03').offset().top-1; //quick3 영역 위치
+    _quick_scroll_top4 = $('.cont04').offset().top-1; //quick4 영역 위치
+    _quick_scroll_top5 = $('.cont05').offset().top-1; //quick5 영역 위치
+
+
+    allRemoveMenuOnCls();
+    if(_my_scroll_top >= _quick_scroll_top5){
+        $(".quick5").addClass("on");
+    } else if (_my_scroll_top >= _quick_scroll_top4){
+        $(".quick4").addClass("on");
+    } else if (_my_scroll_top >= _quick_scroll_top3){
+        $(".quick3").addClass("on");
+    } else if (_my_scroll_top >= _quick_scroll_top2){
+        $(".quick2").addClass("on");
+    } else if (_my_scroll_top >= _quick_scroll_top1){
+        $(".quick1").addClass("on");
+    }
+
+    var scrollTop = $(window).scrollTop();
+
+    if(scrollTop >= $('.main_visual').height()){
+        $('.right_quick').css('display','block');
+    }else{
+        $('.right_quick').css('display','none');;
+    }
+
+});
+
+$('.quick ul li').click(function(e){
+    var el = $(e.target).closest('li');
+    el.siblings('li').removeClass("on");
+    el.addClass("on");
+});
+
+function allRemoveMenuOnCls(){
+    $(".quick1").removeClass("on");
+    $(".quick2").removeClass("on");
+    $(".quick3").removeClass("on");
+    $(".quick4").removeClass("on");
+    $(".quick5").removeClass("on");
+}
+
+//lazy load scroll move
+function lazy_move(obj, recurs){
+    var $target = $(obj);
+
+    $('html, body').animate(
+        {
+            scrollTop: $target.offset().top,
+        }, {
+            duration: 800,
+            step: function (now, fx) {
+                var newOffset = $target.offset().top;
+
+                if (fx.end !== newOffset)
+                    fx.end = newOffset;
+            },
+            complete: function (){ //lazy_move가 제대로 안걸렸을 때
+
+                // 반복 호출로 페이지 상단으로 이동이 불가한 오류로
+                // recurs 제어 추가(한번만 호출)
+                if((parseInt($(document).scrollTop()) != parseInt($target.offset().top))
+                    && recurs === undefined){
+                    lazy_move(obj, true);
+                }
+            }
+        }
+    );
+}
+    //quick_right end ↑↑
+
+</script>
+
+</html>

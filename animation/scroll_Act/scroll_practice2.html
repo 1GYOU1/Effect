@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1gyou1</title>
+    <style>
+		*{margin:0;padding:0;}
+        .wrap{width:100%;height:100%;}
+        .wrap .inner{width:1000px;margin:0 auto;}
+        
+        .header{width:1000px;height:500px;background-color:honeydew}
+        .cont01{width:1000px;height:5000px;background-color:lemonchiffon;position:relative;}
+		.cont02{width:1000px;height:5000px;background-color:lemonchiffon;position:relative;}
+		.footer{width:1000px;height:500px;background-color:lavenderblush}
+
+		.sticky{position:sticky;top:0;left:0;width:100%;height:100vh;overflow: hidden;}
+
+        .left_box{width:500px;position:absolute;top:0;left:0;background-color:lightcyan;height:100%;}
+        .right_box{width:500px;position:absolute;top:0;right:0;background-color:lightsteelblue;height:100%;}
+
+		.top_box{width:100%;height:50%;position:absolute;top:0;left:0;background-color:lightpink;}
+		.bottom_box{width:100%;height:50%;position:absolute;bottom:0;left:0;background-color:lightcoral;}
+
+		.cont02 .left_box{background-color:lightpink;}
+		.cont02 .right_box{background-color:coral;}
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+        <div class="inner">
+            <div class="header">1gyou1 header</div>
+
+            <div class="cont01">
+				<div class="sticky">
+					<div class="back_box">
+						<strong>1gyou1</strong>
+					</div>
+					<div class="left_box">left_box</div>
+					<div class="right_box">right_box</div>
+				</div>
+            </div>
+
+			<div class="cont02">
+				<div class="sticky">
+					<div class="back_box">
+						<strong>1gyou1</strong>
+					</div>
+					<div class="top_box">left_box</div>
+					<div class="bottom_box">right_box</div>
+				</div>
+            </div>
+
+            <div class="footer">1gyou1 footer</div>
+        </div>
+    </div>
+
+    <script>
+
+		(function(){
+			// cont01
+			let cont01_Body = document.querySelector('.cont01');
+			let cont01_Left = document.querySelector('.cont01 .left_box');
+			let cont01_Right = document.querySelector('.cont01 .right_box');
+			// cont02
+			let cont02_Body = document.querySelector('.cont02');
+			let cont02_Top = document.querySelector('.cont02 .top_box');
+			let cont02_Bottom = document.querySelector('.cont02 .bottom_box');
+
+			let box_Min = 0;
+			let box_Max = 100;
+
+
+			function set_Cont01_Scroll(){
+
+				BodyHeight =  cont01_Body.offsetHeight;
+				//엘리먼트의 높이값 = 5000px
+				OffsetTop = cont01_Body.getBoundingClientRect().top + window.pageYOffset;
+				//cont02의 최상단 위치값 + 페이지 스크롤 Y값(0) = window 최상단과 cont02의 거리 = 500
+
+				BodyScrollHeight = BodyHeight - window.innerHeight;
+				//엘리먼트 높이값에서 윈도우 높이값 빼기(해당 부분에서 실제 스크롤 할 높이) = 5000 - 1236 = 3764
+				winTop = window.pageYOffset;
+				contTop = winTop - OffsetTop;
+				//window 스크롤 Y값 0으로 만들어주기위한 변수
+				scrollHeight = BodyHeight - window.innerHeight;
+				//cont02에서 스크롤할 height값 = cont02의 높이 - window.innerheight = 3764
+				percent = Math.floor((contTop / BodyScrollHeight) * 100)
+				//스크롤 백분율 = window Top값 / 엘리먼트 높이값(윈도우 높이값 제외) * 100
+				
+				if(percent <= 0){
+					cont01_Left.style.transform = 'translateX(0%)';
+					cont01_Right.style.transform = 'translateX(0%)';
+				}else if(percent > 0 && percent < 100){
+					cont01_Left.style.transform = 'translateX(-'+percent+'%'+')';
+					cont01_Right.style.transform = 'translateX('+percent+'%'+')';
+				}else if(percent >= 100){
+					cont01_Left.style.transform = 'translateX(-100%)';
+					cont01_Right.style.transform = 'translateX(100%)';
+				}
+
+
+				// console.log(percent)
+			}
+
+			function set_Cont02_Scroll(){
+
+				BodyHeight =  cont02_Body.offsetHeight;
+				//엘리먼트의 높이값 = 5000px
+				OffsetTop = cont02_Body.getBoundingClientRect().top + window.pageYOffset;
+				//cont02의 최상단 위치값 + 페이지 스크롤 Y값(0) = window 최상단과 cont02의 거리 = 500
+
+				BodyScrollHeight = BodyHeight - window.innerHeight;
+				//엘리먼트 높이값에서 윈도우 높이값 빼기(해당 부분에서 실제 스크롤 할 높이) = 5000 - 1236 = 3764
+				winTop = window.pageYOffset;
+				contTop = winTop - OffsetTop;
+				//window 스크롤 Y값 0으로 만들어주기위한 변수
+				scrollHeight = BodyHeight - window.innerHeight;
+				//cont02에서 스크롤할 height값 = cont02의 높이 - window.innerheight = 3764
+				percent = Math.floor((contTop / BodyScrollHeight) * 100)
+				//스크롤 백분율 = window Top값 / 엘리먼트 높이값(윈도우 높이값 제외) * 100
+
+				if(percent <= 0){
+					cont02_Top.style.transform = 'translateY(0%)';
+					cont02_Bottom.style.transform = 'translateY(0%)';
+				}else if(percent > 0 && percent < 100){
+					cont02_Top.style.transform = 'translateY(-'+percent+'%'+')';
+					cont02_Bottom.style.transform = 'translateY('+percent+'%'+')';
+				}else if(percent >= 100){
+					cont02_Top.style.transform = 'translateY(-100%)';
+					cont02_Bottom.style.transform = 'translateY(100%)';
+				}
+
+
+				console.log(percent)
+			}
+
+
+
+		
+			window.addEventListener('scroll',function(){
+				set_Cont01_Scroll();
+				set_Cont02_Scroll();
+			})
+
+		})();
+    </script>
+</body>
+</html>

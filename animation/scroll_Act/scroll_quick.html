@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{height:3000px;position:relative;}
+
+    </style>
+    
+</head>
+<body>
+
+  <!-- 상단고정배너 -->
+  <div class="js-scroll-quick" style="display:block;position:absolute;top:100px;left:50%;margin-left:-700px;width:150px;z-index:100;">
+    <img src="//gscdn.hackers.co.kr/psat/img/main/main_layer_211116.png" alt="" usemap="#q_bnleft5"/>
+    <map name="q_bnleft5">
+        <area shape="circle" coords="140, 10, 9" alt="닫기" href="#;" onclick="$(this).parent().parent().hide();"/>
+        <area shape="circle" coords="75, 76, 74" href="https://egosi.hackers.com/site/?c=event&evt_cd=EG2021111100" target="_blank"/>
+    </map>
+  </div>
+
+<!-- onclick="$(this).closest('.dungdung').hide(); -->
+
+</body>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+  <!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+  <!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+
+ <script>
+           //scroll quick
+           if($(".js-scroll-quick").length != 0) {
+            var cssTop = parseInt($(".js-scroll-quick").css('top'));
+
+            $(window).scroll(function () {
+                var position = $(window).scrollTop();
+                var barTop = position - 0;
+
+                if (position > 0) {
+                    $(".js-scroll-quick").stop().css({'top': barTop});
+                } else {
+                    $('.js-scroll-quick').stop().animate({'top': cssTop + "px"}, 500);
+                }
+            });
+        }
+ </script>
+</html>

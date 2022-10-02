@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1gyou1</title>
+    <style>
+        *{padding:0;margin:0;}
+        .wrap{width:500px;margin:0 auto;padding:100px 0;display: flex;flex-direction: row;flex-wrap: wrap;}
+        .wrap [class^='cont']{width:200px;height:200px;margin:25px;font-size: 72px;color:white;font-weight: bold;display: flex;justify-content: center;align-items: center;}
+
+        .cont01{background-color:pink;animation:top-200 1s 1 forwards;}
+        .cont02{background-color: coral;
+                animation-name: top-200, updown-20;
+                animation-delay: 0s, 1s;
+                animation-duration: 1s, 1s;
+                /* animation-iteration-count: 1, infinite; */
+                animation-timing-function: forwards;}
+        .cont03{background-color: skyblue;   
+                animation-name: top-200, updown-20, blink;
+                animation-delay: 0s, 1s, 2s;
+                animation-duration: 1s, 1s, 1s;
+                /* animation-iteration-count: 1, 1, infinite; */
+                animation-timing-function: forwards;}
+        .cont04{background-color: lavender;
+				animation-name: top-200, updown-20, blink, flip-vertical;
+                animation-delay: 0s, 1s, 2s, 3s;
+                animation-duration: 1s, 1s, 1s, 1s;
+                /* animation-iteration-count: 1, 1, 1, infinite; */
+                animation-timing-function: forwards;}
+        .cont05{background-color: honeydew;
+				animation-name: top-200, updown-20, blink, flip-vertical, rotate;
+                animation-delay: 0s, 1s, 2s, 3s, 4s;
+                animation-duration: 1s, 1s, 1s, 1s, 1s;
+                /* animation-iteration-count: 1, 1, 1, 1, infinite; */
+                animation-timing-function: forwards;}
+        .cont06{background-color: gainsboro;
+				animation-name: top-200, updown-20, blink, flip-vertical, rotate, scale;
+                animation-delay: 0s, 1s, 2s, 3s, 4s, 5s;
+                animation-duration: 1s, 1s, 1s, 1s, 1s, 1s;
+                /* animation-iteration-count: 1, 1, 1, 1, 1, infinite;  */
+                animation-timing-function: forwards;}
+
+        @keyframes top-200{
+            0% {
+                transform: translateY(-200px);
+                opacity: 0;
+            }
+            100% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes updown-20{
+            0% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(20px);
+                opacity: 1;
+            }
+            100% {
+                transform: translate(0, 0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes coin{
+            
+        }
+
+		@keyframes flip-horizontal {
+			0% {
+				-webkit-transform: rotateX(0);
+				transform: rotateX(0);
+			}
+			100% {
+				-webkit-transform: rotateX(-180deg);
+				transform: rotateX(-180deg);
+				opacity: 1;
+			}
+		}
+
+		@keyframes flip-vertical {
+			0% {
+				-webkit-transform: rotateY(0);
+				transform: rotateY(0);
+			}
+			100% {
+				-webkit-transform: rotateY(-360deg);
+				transform: rotateY(-360deg);
+				opacity: 1;
+			}
+		}
+
+        @keyframes blink{
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100%{
+                opacity: 1;
+            }
+        }
+
+		@keyframes scale{
+            0% {
+                opacity: 1;
+            }
+            50% {
+				transform: scale(1.5);
+            }
+            100%{
+				transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+		@keyframes rotate{
+			100% {
+ 			   transform: rotate(360deg);
+			}
+		}
+
+    </style>
+</head>
+<body>
+
+    <div class="wrap">
+		<div class="cont01">A</div>
+		<div class="cont02">B</div>
+		<div class="cont03">C</div>
+		<div class="cont04">D</div>
+		<div class="cont05">C</div>
+		<div class="cont06">D</div>
+    </div>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+    <!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+    <script>
+
+    </script>
+</body>
+</html>
