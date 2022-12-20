@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title></title>
+
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.css">
+     <style>
+		*{margin:0;padding:0;}
+		.wrap{width:1000px;margin:0 auto;}
+		.slide-obj{width:1350px;margin-left:-210px;}
+		.slide-obj .bx-wrapper{width:100%;max-width:1255px !important;}
+		.slide-obj li{width:400px !important;opacity:0.4;transform:scale(1);padding:120px 0;margin-right:20px;}
+		.slide-obj li.on{opacity:1;transform:scale(1);z-index:1;}
+		.slide-obj .bx-wrapper .bx-controls-direction a{background:red;}
+     </style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="slide-obj">
+			<ul>
+				<li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
+				<li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
+				<li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
+			</ul>
+		</div>
+	</div>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.15/jquery.bxslider.min.js"></script>
+<script>
+	var slider = $('.slide-obj > ul').bxSlider({
+	   mode: 'horizontal',
+	   maxSlides: 3,
+	   moveSlides: 1,
+	   controls: true,
+	   pager: false,
+	   auto: false,
+	   onSlideNext: function(el) {
+		   el.closest('.slide-obj').find('li').removeClass('on');
+		   el.next('li').addClass('on');
+	   },
+	   onSlidePrev: function(el) {
+		   el.closest('.slide-obj').find('li').removeClass('on');
+		   el.next('li').addClass('on');
+	   }
+   });
+   </script>
+</body>
+</html>
