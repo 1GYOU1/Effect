@@ -1,0 +1,56 @@
+@charset "UTF-8";
+/* 이벤트가이드css */
+* {margin:0;padding:0;}
+ul li{list-style: none;}
+a{color:#000;text-decoration: none;;}
+
+.inner {width:1000px;padding-bottom:70px;margin:0 auto;}
+.ui_tit {font-size:16px;color:#fff;background:#000;margin:30px 0 10px;padding:10px;}
+.ui_info {background: #efefef;border: 1px solid #d1dde9;padding: 10px;margin: 5px 0 10px;}
+.ui_info p {font-size: 14px;}
+.ui_info li {margin-top: 5px;}
+.source_box h3 {margin: 10px 0;border: 1px solid #d1dde9;background: #f7f7f7;}
+.source_box h3 a {font-size: 14px;padding: 5px;display: block;background: url("http://image.champstudy.com/img/event/2014/common/ico_time_tit.png") no-repeat right 11px;}
+.source_box h3 a.on {background-position: right -6px;}
+pre {display: none;padding: 10px;border: 1px solid #ddd;white-space: pre-wrap;word-break: break-all;line-height: 1.7em;}
+
+/*bxslider*/
+.slide_area .bx-wrapper .bx-viewport .bxslider li{width:600px !important;}
+
+.slide-type3{width:1350px;margin-left:-210px;}
+.slide-type3 .bx-wrapper{width:100%;max-width:1200px !important;}
+.slide-type3 li{width:400px !important;opacity:0.4;transform:scale(0.7);padding:50px 0;margin-right:20px;}
+.slide-type3 li.on{opacity:1;transform:scale(1);z-index:1;}
+
+.slide-type4{width:1350px;margin-left:-210px;}
+.slide-type4 .bx-wrapper{width:100%;max-width:1200px !important;}
+.slide-type4 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding:50px 0;margin-right:20px;}
+.slide-type4 li.on{opacity:1;transform:scale(1);z-index:1;}
+
+.slide-type5{width:1350px;margin-left:-210px;}
+.slide-type5 .bx-wrapper{width:100%;max-width:1200px !important;}
+.slide-type5 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding:50px 0;margin-right:20px;}
+.slide-type5 li.on{opacity:1;transform:scale(1);z-index:1;}
+
+/*slick*/
+.slide-obj{width:1350px;margin-left:-210px;}
+.slide-obj .bx-wrapper{width:100%;max-width:1255px !important;}
+.slide-obj li{width:400px !important;opacity:0.4;transform:scale(1);padding:120px 0;margin-right:20px;}
+.slide-obj li.on{opacity:1;transform:scale(1);z-index:1;}
+.slide-obj .bx-wrapper .bx-controls-direction a{background:red;}
+
+.slick_slider_1 .slick-dotted.slick-slider{margin-bottom:50px;}
+.slick_slider_1 .slick-slide img{width:400px;}
+.slick_slider_1 .slick-dots li{height:auto;width:auto;}
+.slick_slider_1 .slick-dots li button:before{display:none;}
+.slick_slider_1 .slick-dots li button{background:#9ab9ff;border-radius: 50%;opacity: 0.6;width:15px;height:15px;}
+.slick_slider_1 .slick-dots li.slick-active button{opacity: 1;}
+
+.slick_slider_1 .slick-next{right:513px;width:auto;height:auto;}
+.slick_slider_1 .slick-prev{left:505px;width:auto;height:auto;z-index: 1;}
+.slick_slider_1 .slick-next:before, .slick-prev:before{color:#9ab9ff;font-size: 45px;}
+
+.slick_slider_2 {height:520px;overflow:hidden;padding-top:248px;}
+.slick_slider_2 .slick_vertical li{opacity:0.1;filter:alpha(opacity=10);transform:scale(0.8);margin-top:-90px;}
+.slick_slider_2 .slick_vertical li.slick-active{opacity:1;filter:alpha(opacity=100);transform:scale(1);}
+.slick_slider_2 .slick-list{overflow: visible;}
