@@ -32,6 +32,17 @@ pre {display: none;padding: 10px;border: 1px solid #ddd;white-space: pre-wrap;wo
 .slide-type5 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding:50px 0;margin-right:20px;}
 .slide-type5 li.on{opacity:1;transform:scale(1);z-index:1;}
 
+/*슬라이드형탭*/
+.bxslider-default.tab_slide {position: relative;width: 1000px;margin: 0 auto;padding-left: 280px;}
+.bxslider-default.tab_slide .bx-wrapper {position: static;}
+.bxslider-default.tab_slide .bx-pager {left: 0;top: 0;margin-left: 0;padding-top: 0;}
+.bxslider-default.tab_slide .bx-pager .bx-pager-item {display: block;float: inherit;padding-top: 0;}
+.bxslider-default.tab_slide .bx-pager .bx-pager-item a {width: 280px;height: 167px;margin: 0;background: url("//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/img_tab.jpg") no-repeat 0 0/200%;}
+.bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="1"] {background-position-y: 50%;}
+.bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="2"] {background-position-y: 100%;}
+.bxslider-default.tab_slide .bx-pager .bx-pager-item a:hover,
+.bxslider-default.tab_slide .bx-pager .bx-pager-item a.active {background-position-x: 100%;}
+
 /*slick*/
 .slide-obj{width:1350px;margin-left:-210px;}
 .slide-obj .bx-wrapper{width:100%;max-width:1255px !important;}
