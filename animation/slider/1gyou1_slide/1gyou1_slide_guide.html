@@ -24,9 +24,11 @@
     <!-- bxslide start -->
     <div class="event_ui inner">
         <!--기본 슬라이드-->
-        <h2 class="ui_tit">bxSlider - 기본 슬라이드 ①</h2>
+        <h2 class="ui_tit">bxSlider - 기본 슬라이드</h2>
         <div class="ui_info">
-            class="bxslider-default" 앨리먼트 내에 <b>data 추가</b>하여 사용
+            layouts/사업군/_js/bxslider.js 내에 bxSlide 기본 옵션을 한 눈에 보고 수정하기 쉽도록<br>
+            class="bxslider-default" 앨리먼트 내에 <b>data 속성</b>(사용자 지정 데이터)으로 컨트롤 할 수 있게끔 재선언.<br>
+            <br>
             <ul>
                 <li><b>data-mode</b> : <b>horizontal</b> or <b>vertical</b> or <b>fade</b></li>
                 <li><b>data-maxSlides</b> : 최대 보여지는 <b>개수</b></li>
@@ -38,6 +40,10 @@
                 <li><b>data-controls</b> : 슬라이드 <b>컨트롤러</b></li>
                 <li><b>data-moves</b> : 슬라이드 <b>넘어가는 개수</b></li>
             </ul>
+            <br>
+            참고 사이트<br>
+            - <a class="refer_site" href="https://developer.mozilla.org/ko/docs/Web/HTML/Global_attributes/data-*" target="_blank">① data-*</a><br>
+            - <a class="refer_site" href="https://developer.mozilla.org/ko/docs/Learn/HTML/Howto/Use_data_attributes" target="_blank">② 데이터 속성 사용하기<span>(HTML, CSS, JS 에서 사용, 접근)</span></a><br>
         </div>
         <div class="bxslider-default" data-mode="horizontal" data-auto="true" data-controls="true" data-pager="false">
             <ul class="bxslider">
@@ -51,7 +57,7 @@
         <div class="source_box">
             <h3><a href="#;">html</a></h3>
             <pre>
-    &lt;div class="bxslider-default" data-mode="horizontal" data-auto="true" data-controls="true" data-pager="false">
+    &lt;div class="bxslider-default" <b>data-mode="horizontal" data-auto="true" data-controls="true" data-pager="false"</b>>
         &lt;ul class="bxslider">
             &lt;li>&lt;img src="//gscdn.hackers.co.kr/star/img/event/2021/10/1202/pc/type1/v1/cont03_01_01.jpg" alt=""/>&lt;/li>
             &lt;li>&lt;img src="//gscdn.hackers.co.kr/star/img/event/2021/10/1202/pc/type1/v1/cont03_01_02.jpg" alt=""/>&lt;/li>
@@ -63,10 +69,163 @@
             </pre>
         </div>
     </div>
+        <!--//기본 슬라이드-->
+    
+        <!-- active 슬라이드 -->
+    <div class="event_ui inner">
+        <h2 class="ui_tit">bxSlider - active 슬라이드 </h2>
+        <div class="ui_info">
+            layouts/사업군/_js/bxslider.js 내에 소스 내용에 따라서 <b>slide-type1</b>, <b>slide-type2</b>, ...<br>
+        </div>
+        <!-- 슬라이드 -->
+        <div class="bxslider-default slide-type3" data-mode="horizontal" data-auto="false" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:283px;" >
+            <ul class="bxslider">
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
+                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
+            </ul>
+        </div>
+        <!-- //슬라이드 -->
+        <!-- 슬라이드 -->
+        <div class="bxslider-default slide-type4" data-mode="horizontal" data-auto="false" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:283px;" >
+            <ul class="bxslider">
+                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
+            </ul>
+        </div>
+        <!-- //슬라이드 -->
+        <!-- 슬라이드 -->
+        <div class="bxslider-default slide-type5" data-mode="horizontal" data-auto="false" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:283px;" >
+            <ul class="bxslider">
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
+                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
+            </ul>
+        </div>
+        <!-- //슬라이드 -->
+        <div class="source_box">
+            <h3><a href="#;">html</a></h3>
+            <pre>
+    &lt;div class="bxslider-default <b>slide-type3</b>" data-mode="horizontal" data-auto="true" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:283px;" >
+        &lt;ul class="bxslider">
+            &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/>&lt;/li>
+            &lt;li class="on">&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/>&lt;/li>
+            &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/>&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+            </pre>
+    
+            <h3><a href="#;">css</a></h3>
+            <pre>
+    .slide-type3{width:1350px;margin-left:-210px;}
+    .slide-type3 .bx-wrapper{width:100%;max-width:1255px !important;}
+    .slide-type3 li{width:400px !important;opacity:0.4;transform:scale(1);padding:120px 0;margin-right:20px;}
+    .slide-type3 li.on{opacity:1;transform:scale(1);z-index:1;}
+            </pre>
+    
+            <h3><a href="#;">.../_js/bxslider.js</a></h3>
+            <pre>
+    참고 사이트
+    - <a class="refer_site" href="https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf" target="_blank">String.prototype.indexOf()</a>
+    .
+    .
+    .
+    <b>,onSlideNext</b>: function(el) {
+        <span class="remark">// type3</span>
+        if(el.context.className.indexOf("slide-type3") > 0){ <span class="remark">//class "slide-type3"의 index가 0 이상일때</span>
+            el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+            el.next('li').addClass('on');
+        }
+        <span class="remark">// type4</span>
+        if(el.context.className.indexOf("slide-type4") > 0){
+            el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+            el.addClass('on');
+        }
+        <span class="remark">// type5</span>
+        if(el.context.className.indexOf("slide-type5") > 0){
+            el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+            el.next().next('li').addClass('on');
+        }
+    }
+    <b>,onSlidePrev</b>: function(el) {
+        <span class="remark">// type3</span>
+        if(el.context.className.indexOf("slide-type3") > 0){
+            el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+            el.next('li').addClass('on');
+        }
+        <span class="remark">// type4</span>
+        if(el.context.className.indexOf("slide-type4") > 0){
+            el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+            el.next('li').addClass('on');
+        }
+        <span class="remark">// type5</span>
+        if(el.context.className.indexOf("slide-type5") > 0){
+            el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+            el.next().next('li').addClass('on');
+        }
+    }
+            </pre>
+        </div>
+        <!-- //active 슬라이드 -->
+    </div>
+    
+        <!-- 슬라이드 선언 -->
+    <div class="event_ui inner">
+        <h2 class="ui_tit">bxSlider - 슬라이드 선언 ①</h2>
+        <div class="ui_info">
+            js에서 선언해서 사용
+            <br> $(function() {} 등 jquery load 후 사용해야 안전
+            <br>
+            <br>참고 사이트
+            <br>- <a class="refer_site" href="https://github.com/stevenwanderski/bxslider-4" target="_blank">bxslider github</a>
+        </div>
+        <div class="slide-obj">
+            <ul>
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
+                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
+                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
+            </ul>
+        </div>
+        <div class="source_box">
+            <h3><a href="#;">html</a></h3>
+            <pre>
+    &lt;div class="slide-obj">
+    &lt;ul>
+        &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/>&lt;/li>
+        &lt;li class="on">&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/>&lt;/li>
+        &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/>&lt;/li>
+    &lt;/ul>
+    &lt;/div>
+            </pre>
+            <h3><a href="#;">js</a></h3>
+            <pre>
+    $('.slide-obj > ul').bxSlider({
+        mode: 'horizontal',
+        maxSlides: 3,
+        moveSlides: 1,
+        controls: true,
+        pager: false,
+        auto: false,
+        onSlideNext: function(el) {
+            <span class="remark">//해당 영역에 autoMap.printMap()...등 사용</span>
+            el.closest('.slide-obj').find('li').removeClass('on');
+            el.next('li').addClass('on');
+            <b>console.log('Next Click !')</b>
+        },
+        onSlidePrev: function(el) {
+            el.closest('.slide-obj').find('li').removeClass('on');
+            el.next('li').addClass('on');
+            <b>console.log('Prev Click !')</b>
+        }
+    });
+    </pre>
+        </div>
+    </div>
     
     <!-- list 슬라이드 -->
     <div class="event_ui inner">
-        <h2 class="ui_tit">bxSlider - 기본 슬라이드 ②</h2>
+        <h2 class="ui_tit">bxSlider - 슬라이드 선언 ②</h2>
     </div>
     <div class="slide_area">
         <ul class="bxslider list_slider">
@@ -113,183 +272,15 @@
             </pre>
         </div>
     </div>
-        <!-- // list 슬라이드 -->
-        <!--//기본 슬라이드-->
-    
-        <!-- active 슬라이드 -->
-    <div class="event_ui inner">
-        <h2 class="ui_tit">bxSlider - active 슬라이드 </h2>
-        <div class="ui_info">
-            layouts/사업군/_js/bxslider.js 내에 소스 내용에 따라서 <b>slide-type1</b>, <b>slide-type2</b>, ...
-        </div>
-        <!-- 슬라이드 -->
-        <div class="bxslider-default slide-type3" data-mode="horizontal" data-auto="true" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:351px;" >
-            <ul class="bxslider">
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
-                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
-            </ul>
-        </div>
-        <!-- //슬라이드 -->
-        <!-- 슬라이드 -->
-        <div class="bxslider-default slide-type4" data-mode="horizontal" data-auto="true" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:351px;" >
-            <ul class="bxslider">
-                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
-            </ul>
-        </div>
-        <!-- //슬라이드 -->
-        <!-- 슬라이드 -->
-        <div class="bxslider-default slide-type5" data-mode="horizontal" data-auto="true" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:351px;" >
-            <ul class="bxslider">
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
-                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
-            </ul>
-        </div>
-        <!-- //슬라이드 -->
-        <div class="source_box">
-            <h3><a href="#;">html</a></h3>
-            <pre>
-    &lt;div class="bxslider-default slide-type3" data-mode="horizontal" data-auto="true" data-delay="5000" data-controls="true" data-maxSlides="3" data-minSlides="3" data-moves="1" data-pager="false" style="height:349px;" >
-    &lt;ul class="bxslider">
-        &lt;li>
-            &lt;a href="javascript:playMedia('https://www.youtube.com/embed/6PxhmWzG-i4?showinfo=0&fs=0&rel=0');">
-                &lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/>
-            &lt;/a>
-        &lt;/li>
-        &lt;li class="on">
-            &lt;a href="javascript:playMedia('https://www.youtube.com/embed/kmhAl_RKqus?showinfo=0&fs=0&rel=0');">
-                &lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/>
-            &lt;/a>
-        &lt;/li>
-        &lt;li>
-            &lt;a href="javascript:playMedia('https://www.youtube.com/embed/SqJyqQ0Il_s?showinfo=0&fs=0&rel=0');">
-                &lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/>
-            &lt;/a>
-        &lt;/li>
-    &lt;/ul>
-    &lt;/div>
-            </pre>
-    
-            <h3><a href="#;">css</a></h3>
-            <pre>
-    .slide-type3{width:1350px;margin-left:-210px;}
-    .slide-type3 .bx-wrapper{width:100%;max-width:1255px !important;}
-    .slide-type3 li{width:400px !important;opacity:0.4;transform:scale(1);padding:120px 0;margin-right:20px;}
-    .slide-type3 li.on{opacity:1;transform:scale(1);z-index:1;}
-            </pre>
-    
-            <h3><a href="#;">.../_js/bxslider.js</a></h3>
-            <pre>
-    .
-    .
-    .
-    ,onSlideNext: function(el) {
-    // type3
-    if(el.context.className.indexOf("slide-type3") > 0){
-        el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-        el.next('li').addClass('on').addClass('target');
-        el.next().next('li').addClass('active');
-        el.addClass('active');
-    }
-    // type4
-    if(el.context.className.indexOf("slide-type4") > 0){
-        el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-        el.addClass('on').addClass('target');
-        el.next('li').addClass('active');
-        el.addClass('active');
-    }
-    // type5
-    if(el.context.className.indexOf("slide-type5") > 0){
-        el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-        el.next().next('li').addClass('on').addClass('target');
-        el.next().next().next('li').addClass('active');
-        el.addClass('active');
-    }
-    }
-    ,onSlidePrev: function(el) {
-    // type3
-    if(el.context.className.indexOf("slide-type3") > 0){
-        el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-        el.next('li').addClass('on').addClass('target');
-        el.next().next('li').addClass('active');
-        el.addClass('active');
-    }
-    // type4
-    if(el.context.className.indexOf("slide-type4") > 0){
-        el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-        el.next('li').addClass('on').addClass('target');
-        el.next().next('li').addClass('active');
-        el.addClass('active');
-    }
-    // type5
-    if(el.context.className.indexOf("slide-type5") > 0){
-        el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-        el.next().next('li').addClass('on').addClass('target');
-        el.next().next().next('li').addClass('active');
-        el.addClass('active');
-    }
-    }
-            </pre>
-        </div>
-        <!-- //active 슬라이드 -->
-    </div>
-    
-        <!-- 슬라이드 선언 -->
-    <div class="event_ui inner">
-        <h2 class="ui_tit">bxSlider - 슬라이드 선언</h2>
-        <div class="ui_info">
-            js에서 선언해서 사용
-            <br> $(function() {} 등 jquery load 후 사용해야 안전
-            <br>형제 클래스 삭제 시, 전체로 잡으면 모든 슬라이드에서 삭제될 수 있어 특정 부모 잡아놓고 삭제해야 함
-            <br>참고 bxslider github<a style="text-decoration:underline;" href="https://github.com/stevenwanderski/bxslider-4" target="_blank">https://github.com/stevenwanderski/bxslider-4</a>
-        </div>
-        <div class="slide-obj">
-            <ul>
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/></li>
-                <li class="on"><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/></li>
-                <li><img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/></li>
-            </ul>
-        </div>
-        <div class="source_box">
-            <h3><a href="#;">html</a></h3>
-            <pre>
-    &lt;div class="slide-obj">
-    &lt;ul>
-        &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_01.png" alt=""/>&lt;/li>
-        &lt;li class="on">&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_02.png" alt=""/>&lt;/li>
-        &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/china/event/2022/05/0401/pc/type1/v1/cont08_01_03.png" alt=""/>&lt;/li>
-    &lt;/ul>
-    &lt;/div>
-            </pre>
-            <h3><a href="#;">js</a></h3>
-            <pre>
-    var slider = $('.slide-obj > ul').bxSlider({
-    mode: 'horizontal',
-    maxSlides: 3,
-    moveSlides: 1,
-    controls: true,
-    pager: false,
-    auto: false,
-    onSlideNext: function(el) {
-        el.closest('.slide-obj').find('li').removeClass('on');
-        el.next('li').addClass('on');
-    },
-    onSlidePrev: function(el) {
-        el.closest('.slide-obj').find('li').removeClass('on');
-        el.next('li').addClass('on');
-    }
-    });
-    </pre>
-        </div>
-    </div>
+    <!-- // list 슬라이드 -->
     <!-- //슬라이드 선언 -->
     
     <!-- 슬라이드형 탭 -->
     <div class="event_ui inner">
         <h2 class="ui_tit">슬라이드형 탭</h2>
+        <div class="ui_info">
+            bxSlider의 <b>pager</b> 기능을 활용한 슬라이드형 탭.
+        </div>
         <div class="bxslider-default tab_slide" data-mode="fade" data-auto="true" data-controls="false" data-pager="true">
             <ul class="bxslider">
                 <li><img src="//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/slide01.jpg" alt="" /></li>
@@ -300,7 +291,7 @@
         <div class="source_box">
             <h3><a href="#;">html</a></h3>
             <pre>
-    &lt;div class="bxslider-default tab_slide" data-mode="fade" data-auto="true" data-controls="false" data-pager="true">
+    &lt;div class="bxslider-default tab_slide" data-mode="fade" data-auto="true" data-controls="false" <b>data-pager="true"</b>>
         &lt;ul class="bxslider">
             &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/slide01.jpg" alt="" />&lt;/li>
             &lt;li>&lt;img src="//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/slide02.jpg" alt="" />&lt;/li>
@@ -310,15 +301,16 @@
     </pre>
             <h3><a href="#;">css</a></h3>
             <pre>
-    .bxslider-default.tab_slide{position:relative;width:1000px;margin:0 auto;padding-left:280px;}
-    .bxslider-default.tab_slide .bx-wrapper{position: static;}
-    .bxslider-default.tab_slide .bx-pager{left:0;top:0;margin-left:0;padding-top:0;}
-    .bxslider-default.tab_slide .bx-pager .bx-pager-item {display:block;float:inherit;padding-top:0;}
-    .bxslider-default.tab_slide .bx-pager .bx-pager-item a{width:280px;height:167px;margin:0;background:url('//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/img_tab.jpg') no-repeat 0 0 / 200%;}
-    .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="1"]{background-position-y:50%;}
-    .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="2"]{background-position-y:100%;}
+    .bxslider-default.tab_slide {position: relative;width: 1000px;margin: 0 auto;padding-left: 280px;}
+    .bxslider-default.tab_slide .bx-wrapper {position: static;}
+    .bxslider-default.tab_slide .bx-pager {left: 0;top: 0;margin-left: 0;padding-top: 0;}
+    .bxslider-default.tab_slide .bx-pager .bx-pager-item {display: block;float: inherit;padding-top: 0;}
+    .bxslider-default.tab_slide .bx-pager .bx-pager-item a {width: 280px;height: 167px;margin: 0;background: url("//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/img_tab.jpg") no-repeat 0 0/200%;}
+    .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="0"]{background-position-y: 0%;}
+    .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="1"] {background-position-y: 50%;}
+    .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="2"] {background-position-y: 100%;}
     .bxslider-default.tab_slide .bx-pager .bx-pager-item a:hover,
-    .bxslider-default.tab_slide .bx-pager .bx-pager-item a.active{background-position-x:100%;}
+    .bxslider-default.tab_slide .bx-pager .bx-pager-item a.active {background-position-x: 100%;}
     </pre>
         </div>
     </div>
@@ -329,6 +321,12 @@
     <!--slick start-->
     <div class="event_ui inner">
         <h2 class="ui_tit">slick - 슬라이드</h2>
+        <div class="ui_info">
+            비교적 자동으로 반응형 가운데 정렬(centerMode)사용이 편리하여 사용.
+            <br>
+            <br>참고 사이트
+            <br>- <a class="refer_site" href="https://kenwheeler.github.io/slick/" target="_blank">slick slider 사용예시 사이트</a>
+        </div>
     </div>
     <div class="slick_slider_1">
         <ul class="slick_center">
@@ -344,6 +342,10 @@
         <div class="source_box">
             <h3><a href="#;">html</a></h3>
             <pre>
+    &lt;link rel="stylesheet" href="/modules/event/slick.css" />
+    &lt;link rel="stylesheet" href="/modules/event/slick-theme.css" />
+    &lt;script src="/modules/event/slick.min.js">&lt;/script>
+    
     &lt;div class="slick_slider_1">
         &lt;ul class="slick_center">
             &lt;li>&lt;img src="//gscdn.hackers.co.kr/pass/img/event/2019/12/2300/pc/type9/v1/cont01_s1.png" alt=""/>&lt;/li>
@@ -374,7 +376,8 @@
         autoplay: true, // 자동 스크롤 사용 여부
         autoplaySpeed: 2500,
         focusOnSelect: true,
-        variableWidth: true
+        variableWidth: true,
+        lazyLoad:'ondemand'
     });
         </pre>
         </div>

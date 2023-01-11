@@ -27,10 +27,12 @@ $(function() {
         onSlideNext: function(el) {
             el.closest('.slide-obj').find('li').removeClass('on');
             el.next('li').addClass('on');
+            console.log('Next Click !')
         },
         onSlidePrev: function(el) {
             el.closest('.slide-obj').find('li').removeClass('on');
             el.next('li').addClass('on');
+            console.log('Prev Click !')
         }
     });
 
@@ -42,7 +44,7 @@ $(function() {
         slidesToShow: 3,
         slidesToScroll: 1,
         centerMode: true,
-        arrows: true,
+        arrows: false,
         autoplay: true, // 자동 스크롤 사용 여부
         autoplaySpeed: 2500,
         focusOnSelect: true,
@@ -224,47 +226,35 @@ var __globalBxslider = {
             ,onSlideNext: function(el) {
                 // type3
                 if(el.context.className.indexOf("slide-type3") > 0){
-                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-                    el.next('li').addClass('on').addClass('target');
-                    el.next().next('li').addClass('active');
-                    el.addClass('active');
+                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+                    el.next('li').addClass('on');
                 }
                 // type4
                 if(el.context.className.indexOf("slide-type4") > 0){
-                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-                    el.addClass('on').addClass('target');
-                    el.next('li').addClass('active');
-                    el.addClass('active');
+                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+                    el.addClass('on');
                 }
                 // type5
                 if(el.context.className.indexOf("slide-type5") > 0){
-                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-                    el.next().next('li').addClass('on').addClass('target');
-                    el.next().next().next('li').addClass('active');
-                    el.addClass('active');
+                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+                    el.next().next('li').addClass('on')
                 }
             }
             ,onSlidePrev: function(el) {
                 // type3
                 if(el.context.className.indexOf("slide-type3") > 0){
-                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-                    el.next('li').addClass('on').addClass('target');
-                    el.next().next('li').addClass('active');
-                    el.addClass('active');
+                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+                    el.next('li').addClass('on');
                 }
                 // type4
                 if(el.context.className.indexOf("slide-type4") > 0){
-                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-                    el.next('li').addClass('on').addClass('target');
-                    el.next().next('li').addClass('active');
-                    el.addClass('active');
+                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+                    el.next('li').addClass('on');
                 }
                 // type5
                 if(el.context.className.indexOf("slide-type5") > 0){
-                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on').removeClass('target').removeClass('active');
-                    el.next().next('li').addClass('on').addClass('target');
-                    el.next().next().next('li').addClass('active');
-                    el.addClass('active');
+                    el.closest('.bxslider-default').find('.bxslider li').removeClass('on');
+                    el.next().next('li').addClass('on');
                 }
             }
             ,onSlideAfter:function(el){

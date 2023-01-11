@@ -13,53 +13,71 @@ a{color:#000;text-decoration: none;;}
 .source_box h3 a {font-size: 14px;padding: 5px;display: block;background: url("http://image.champstudy.com/img/event/2014/common/ico_time_tit.png") no-repeat right 11px;}
 .source_box h3 a.on {background-position: right -6px;}
 pre {display: none;padding: 10px;border: 1px solid #ddd;white-space: pre-wrap;word-break: break-all;line-height: 1.7em;}
-
-/*bxslider*/
+a.refer_site{font-weight: bold;}
+a.refer_site span{font-weight: 500;}
+a.refer_site:hover{background-color:rgba(255,211,61,0.4);transition:all ease 0.5s;}
+.remark{color:#a6a6a6;}
+/*공통 bxslider*/
 .slide_area .bx-wrapper .bx-viewport .bxslider li{width:600px !important;}
 
-.slide-type3{width:1350px;margin-left:-210px;}
+.slide-type3{width:1350px;margin-left:-145px;}
 .slide-type3 .bx-wrapper{width:100%;max-width:1200px !important;}
-.slide-type3 li{width:400px !important;opacity:0.4;transform:scale(0.7);padding:50px 0;margin-right:20px;}
+.slide-type3 li{width:400px !important;opacity:0.4;transform:scale(0.7);padding-top:30px;margin-right:20px;}
 .slide-type3 li.on{opacity:1;transform:scale(1);z-index:1;}
+.slide-type3.bxslider-default .bx-controls .bx-controls-direction{top:53%;}
+.slide-type3.bxslider-default .bx-controls-direction .bx-next{right:26px;}
+.slide-type3.bxslider-default .bx-controls-direction .bx-prev{left:-52px;}
 
-.slide-type4{width:1350px;margin-left:-210px;}
+.slide-type4{width:1350px;margin-left:-212px;}
 .slide-type4 .bx-wrapper{width:100%;max-width:1200px !important;}
-.slide-type4 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding:50px 0;margin-right:20px;}
+.slide-type4 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding-top:30px;margin-right:20px;}
 .slide-type4 li.on{opacity:1;transform:scale(1);z-index:1;}
+.slide-type4.bxslider-default .bx-controls .bx-controls-direction{top:55%;}
+.slide-type4.bxslider-default .bx-controls-direction .bx-next{right:-43px;}
+.slide-type4.bxslider-default .bx-controls-direction .bx-prev{left:-52px;}
 
-.slide-type5{width:1350px;margin-left:-210px;}
+.slide-type5{width:1350px;margin-left:-171px;}
 .slide-type5 .bx-wrapper{width:100%;max-width:1200px !important;}
-.slide-type5 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding:50px 0;margin-right:20px;}
+.slide-type5 li{width:400px !important;opacity:0.4;transform:scale(0.8);padding:30px 0;margin-right:20px;}
 .slide-type5 li.on{opacity:1;transform:scale(1);z-index:1;}
+.slide-type5.bxslider-default .bx-controls .bx-controls-direction{top:50%;}
+.slide-type5.bxslider-default .bx-controls-direction .bx-next{right:-50px;}
+.slide-type5.bxslider-default .bx-controls-direction .bx-prev{left:-52px;}
 
-/*슬라이드형탭*/
+/*bxslider 슬라이드형탭*/
 .bxslider-default.tab_slide {position: relative;width: 1000px;margin: 0 auto;padding-left: 280px;}
 .bxslider-default.tab_slide .bx-wrapper {position: static;}
 .bxslider-default.tab_slide .bx-pager {left: 0;top: 0;margin-left: 0;padding-top: 0;}
 .bxslider-default.tab_slide .bx-pager .bx-pager-item {display: block;float: inherit;padding-top: 0;}
 .bxslider-default.tab_slide .bx-pager .bx-pager-item a {width: 280px;height: 167px;margin: 0;background: url("//gscdn.hackers.co.kr/champ/img/event/2019/03/2701/pc/type2/v4/img_tab.jpg") no-repeat 0 0/200%;}
+.bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="0"]{background-position-y: 0%;}
 .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="1"] {background-position-y: 50%;}
 .bxslider-default.tab_slide .bx-pager .bx-pager-item a[data-slide-index="2"] {background-position-y: 100%;}
 .bxslider-default.tab_slide .bx-pager .bx-pager-item a:hover,
 .bxslider-default.tab_slide .bx-pager .bx-pager-item a.active {background-position-x: 100%;}
 
-/*slick*/
-.slide-obj{width:1350px;margin-left:-210px;}
+/*bxslider 슬라이드 선언*/
+.slide-obj{width:1350px;margin-left:-160px}
 .slide-obj .bx-wrapper{width:100%;max-width:1255px !important;}
-.slide-obj li{width:400px !important;opacity:0.4;transform:scale(1);padding:120px 0;margin-right:20px;}
+.slide-obj li{width:400px !important;opacity:0.4;transform:scale(1);padding:80px 0;margin-right:20px;}
 .slide-obj li.on{opacity:1;transform:scale(1);z-index:1;}
-.slide-obj .bx-wrapper .bx-controls-direction a{background:red;}
+.slide-obj .bx-wrapper .bx-controls-direction a{background:url('https://gscdn.hackers.co.kr/champ/img/china/event/2020/03/0201/pc/type2/v3/arrow.png')-3px -4px / 243%;margin-top:-16px;width:40px;height:40px;border-radius: 50%;box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;}
+.slide-obj .bx-wrapper .bx-prev{left:-15px;}
+.slide-obj .bx-wrapper .bx-next{right:0;}
+.slide-obj .bx-wrapper .bx-controls-direction a.bx-next{background-position-x: 94%;}
+.slide-obj .bx-wrapper .bx-controls-direction a:hover{background-position-y: 92%;}
 
+/*slick*/
 .slick_slider_1 .slick-dotted.slick-slider{margin-bottom:50px;}
 .slick_slider_1 .slick-slide img{width:400px;}
 .slick_slider_1 .slick-dots li{height:auto;width:auto;}
 .slick_slider_1 .slick-dots li button:before{display:none;}
-.slick_slider_1 .slick-dots li button{background:#9ab9ff;border-radius: 50%;opacity: 0.6;width:15px;height:15px;}
+.slick_slider_1 .slick-dots li button{background:#9ab9ff;border-radius: 50%;opacity: 0.3;width:15px;height:15px;}
 .slick_slider_1 .slick-dots li.slick-active button{opacity: 1;}
 
-.slick_slider_1 .slick-next{right:513px;width:auto;height:auto;}
-.slick_slider_1 .slick-prev{left:505px;width:auto;height:auto;z-index: 1;}
-.slick_slider_1 .slick-next:before, .slick-prev:before{color:#9ab9ff;font-size: 45px;}
+/*.slick_slider_1 .slick-next{right:513px;width:auto;height:auto;}*/
+/*.slick_slider_1 .slick-prev{left:505px;width:auto;height:auto;z-index: 1;}*/
+/*.slick_slider_1 .slick-next:before, .slick-prev:before{color:#9ab9ff;font-size: 45px;}*/
 
 .slick_slider_2 {height:520px;overflow:hidden;padding-top:248px;}
 .slick_slider_2 .slick_vertical li{opacity:0.1;filter:alpha(opacity=10);transform:scale(0.8);margin-top:-90px;}
