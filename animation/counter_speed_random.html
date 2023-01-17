@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>1gyou1</title>
+
+     <style>
+        /* reset */
+        *{margin:0;padding:0;}
+        ul li{list-style: none;}
+        /* style */
+        #quick {overflow: hidden;width:200px;margin:250px auto 0;background-color:lightpink;font-size:13px; color:#333;}
+        #quick ul li { text-align:center;}
+        #quick ul li span { vertical-align:text-bottom;color:#000; font:bold 25px Tahoma;line-height: 1;}
+        .sloting {position:relative;display:inline-block;height: 25px;line-height: 25px;}
+        .sloting span {position:absolute;;}
+     </style>
+</head>
+<body>
+    <div id="quick" class="quick1" style="">
+        <ul class="clearfix">
+            <li>
+                <span id="oSloting1" class="sloting" style="width:120px;">
+                    <span>1</span>
+                    <span>8</span>
+                    <span>7</span>
+                    <span>7</span>
+                    <span>7</span>
+                    <span>7</span>
+                    <span>7</span>
+                </span>명
+            </li>
+        </ul>
+    </div>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+<script type="text/javascript">
+(function($){
+	var sloting = {
+		init: function( obj ){
+			var itemHeight = obj[0].offsetHeight;
+			this.create( obj, itemHeight );
+			var items = obj.find('span');
+
+			for( var i = 0; i < items.length; i++ ){
+				if( items[i].num > -1 ){
+					var speed = Math.floor( Math.random() * ( 2500 - 1500 + 1 ) ) + 1500;
+					$(items[i]).stop(false,true)
+						.animate({ top: -(items[i].num * itemHeight + itemHeight * 10) }, speed );
+				}
+			}
+		},
+
+		create: function( obj, itemHeight ){
+			var num = obj.text();
+			var left = 0;
+
+			obj.css({
+				width: obj[0].offsetWidth,
+				height: itemHeight,
+				lineHeight: itemHeight +'px'
+			}).text('');
+
+			for( var i = 0; i < num.length; i++ ){
+				var chr = num.charAt(i);
+				var span = document.createElement('span');
+				if( chr.match( /[0-9]/ ) ){
+					span.num = chr;
+					span.innerHTML = "0<br />1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />0<br />1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9";
+				}
+				else {
+					span.num = -1;
+					span.innerHTML = chr;
+				}
+				span.style.left = left +'px';
+				obj.append( span );
+				left += span.offsetWidth;
+			}
+		}
+	};
+
+	$.fn.sloting = function(){
+		sloting.init( this );
+	};
+})(jQuery);
+
+// 숫자 카운팅 모션
+$(window).load(function () {
+		$('#oSloting1').sloting();
+});
+</script>
+</body>
+</html>
