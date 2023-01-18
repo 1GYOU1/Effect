@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>quick_banner_animation</title>
+    <style>
+
+    *{margin:0;padding:0;}
+	ul li{list-style: none;}
+	a{text-decoration: none;color:#3d3d3d;}
+	section{min-height:150vh;text-shadow:0 0 10px #555;display:flex;justify-content:center;align-items:center;color:#fff;font-size:66px;font-weight:bold}
+	section:nth-of-type(1){background:lightblue}
+	section:nth-of-type(2){background:lightcyan}
+	section:nth-of-type(3){background:honeydew}
+	section:nth-of-type(4){background:lightcoral}
+	section:nth-of-type(5){background:lemonchiffon}
+	section:nth-of-type(6){background:lightsteelblue}
+	section:nth-of-type(7){background:lightpink}
+	section:nth-of-type(8){background:lavender}
+	.quick{position:fixed;top:20vw;right:5vw}
+	.quick__item{margin-top:10px}
+	.quick__item a{display:block;padding:10px 20px;font-size:20px;text-align:center;box-shadow:0 0 10px #555;border-radius:15px;background:#fff}
+	.quick__item.on a{background:#FF4500;color:#fff}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <section
+                class="cont01"
+                id="cont01"
+                data-quick-start="cont01"
+                data-quick-end="cont02"
+        >
+            cont01
+        </section>
+        <section
+                class="cont02"
+        >
+            cont02
+        </section>
+        <section
+                class="cont03"
+                id="cont03"
+                data-quick-start="cont03"
+                data-quick-end="cont03"
+        >
+            cont03
+        </section>
+        <section
+                class="cont04"
+                id="cont04"
+                data-quick-start="cont04"
+                data-quick-end="cont05"
+        >
+            cont04
+        </section>
+        <section
+                class="cont05"
+        >
+            cont05
+        </section>
+        <section
+                class="cont06"
+                id="cont06"
+                data-quick-start="cont06"
+                data-quick-end="cont06"
+        >
+            cont06
+        </section>
+        <section
+                class="cont07"
+        >
+            cont07
+        </section>
+        <section
+                class="cont08"
+                id="cont08"
+                data-quick-start="cont08"
+                data-quick-end="cont08"
+        >
+            cont08
+        </section>
+
+        <ul class="quick">
+            <li class="quick__item"><a href="#;" onclick="scrollQuickLazy($(this), '.cont01');">cont01</a></li>
+            <li class="quick__item"><a href="#;" onclick="scrollQuickLazy($(this), '.cont03');">cont03</a></li>
+            <li class="quick__item"><a href="#;" onclick="scrollQuickLazy($(this), '.cont04');">cont04</a></li>
+            <li class="quick__item"><a href="#;" onclick="scrollQuickLazy($(this), '.cont06');">cont06</a></li>
+            <li class="quick__item"><a href="#;" onclick="scrollQuickLazy($(this), '.cont08');">cont08</a></li>
+        </ul>
+    </div>
+</body>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+<script>
+    var pointEl = $('[data-quick-start]');
+    var quickValues = [];
+
+    pointEl.each(function(idx, el) {
+        var startEl = $('.' + el.dataset.quickStart).offset().top;
+        var endEl = $('.' + el.dataset.quickEnd).offset().top + $('.' + el.dataset.quickEnd).height();
+
+        quickValues.push([startEl, endEl]);
+    });
+
+    var quickEl = $('.quick__item');
+
+    function scrollQuick() {
+        quickValues.forEach(function(el, idx) {
+            if(window.scrollY >= el[0] && window.scrollY <= el[1]) {
+                quickEl[idx].classList.add('on');
+            }
+            else {
+                quickEl[idx].classList.remove('on');
+            }
+        });
+    }
+
+    (function(){
+        $(window).on('scroll', function() {
+            scrollQuick()
+        })
+    })();
+
+     function scrollQuickLazy (_this, target) {
+
+         $('html, body').animate(
+             {
+                 scrollTop: $(target).offset().top
+             }, {
+                 duration: 800,
+                 complete: function () {
+                     quickEl.removeClass('on');
+                     _this.closest('li').addClass('on');
+                 }
+             }
+         );
+    }
+</script>
+
+</html>
