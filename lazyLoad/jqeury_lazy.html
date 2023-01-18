@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>image lazy load</title>
+
+     <style>
+      .wrap{width:1000px;margin:0 auto;}
+     </style>
+</head>
+<body>
+    <div class="wrap">
+        <img src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/main_img.jpg" alt="" >
+        <img src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/main_img.jpg" alt="" >
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+        <img class="lazy" data-src="https://gscdn.hackers.co.kr/psat/img/event/2022/12/1500/pc/type1/v1/cont03.jpg" src="//gscdn.hackers.co.kr/champ/blank.gif">
+    </div>
+	
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+<!--jQuery 소스삽입  cdnjs 플러그인 사용 -->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js'></script>
+<!--jQuery-ui 소스삽입 (aniamtion 기능, 다양한 ui component)  cdnjs 플러그인 사용 -->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"></script>
+<!-- lazyload -->
+<script type="text/javascript">
+$('.lazy').Lazy({
+    // your configuration goes here
+    thresold : 100,
+    placeholder : '이미지경로',
+    effect: 'fadeIn',
+    onError: function(element) {
+        console.log('error loading ' + element.data('src'));
+    }
+});
+</script>
+</body>
+</html>
