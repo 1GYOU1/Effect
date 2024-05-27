@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>js로 한글자씩 나타내는 효과</title>
+    <style>
+        *{margin:0;padding:0;}
+        .wrap{position:relative;height:100vh;width:100vw;}
+        h1{font-size:24px;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <h1 class="main_txt"></h1>
+        <h2 class="txt_img">l</h2><!--css 수정해서 커서 효과로 사용하기-->
+    </div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js'></script>
+    <script>
+        $(document).ready(function(){
+            safe_txt();
+            function safe_txt(){
+                const content= "ABCDEFG";
+                const text = document.querySelector('.main_txt');
+                var index = 0;
+                var typingInterval;
+                function typing () {
+                    text.textContent += content[index++];
+                    if(index >= content.length){
+                        clearInterval(typingInterval);
+                    }
+                }
+                typingInterval = setInterval(typing, 200);
+            }
+            setTimeout(function () {
+                $('.txt_img').addClass('on');
+            },1500)
+        });//opening
+    </script>
+</body>
+</html>
