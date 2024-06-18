@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+    .dummy_box{width:100%;height:1000px;background:lightblue;}
+    .scroll_x{width:500px;overflow-x:scroll;margin:0 auto;}
+    .text_box{width:1500px;height:300px;background: linear-gradient(90deg, rgba(34, 36, 38, 0) 0%, rgba(255, 179, 179, 1) 0%, rgba(255, 0, 96, 0.5032606792717087) 100%);}
+</style>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="wrap">
+        <div class="dummy_box"></div>
+
+        <div class="scroll_x move">
+            <div class="text_box"></div>
+        </div>
+
+        <div class="dummy_box"></div>
+    </div>
+    <script>
+        // 특정 구간 진입시 스크롤 x축 이동 애니메이션 이벤트
+        $(document).ready(function() {
+            if($('.scroll_x.move').length > 0){
+                $(window).on("scroll", function() {
+                    var $div = $(".scroll_x.move");
+                    
+                    var boxTop = $div.offset().top;// 실행되어야하는 단 위치 top값 구하기
+                    var scrollBoxWidth = $('.text_box').width();// 스크롤 실행되어야할 만큼의 width값 구하기
+                    var windowScrollTop = $(window).scrollTop();// window의 top값
+                    console.log(scrollBoxWidth)
+
+                    if(windowScrollTop + 350 > boxTop){// 350px정도 위에서 진입시 실행
+                        $div.animate({ scrollLeft: scrollBoxWidth }, 500);
+                        // width값만큼 x축으로 스크롤 이동 애니메이션 0.5초동안 실행
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
