@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>range_slide_img</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./automap.js"></script>
+    <script type="text/javascript" src="./range.slider.js"></script>
+    <style type="text/css">
+        #first {position:relative; background:#cacaca; width:540px; height:30px; line-height:30px; text-align:center; color:#000;}
+        .rangeContBtn {position:absolute; top:0px; left:0px; background:#666; width:10px; height:30px; cursor:move;}
+        .resize_map {width:50%;}
+        .resize_map img {display:block; width:100%;}
+        .img_re {width:100%;}
+        .img_re img {width:100%;}
+    </style>
+</head>
+<body>
+    <div id="first">이미지 사이즈 조절</div>
+    <div class="resize_map">
+        <img src="./img.jpg" alt="" usemap="#img_01">
+        <map name="img_01" map-autoresize map-size="400">
+            <area shape="rect" coords="63, 202, 350, 273" href="#" target="_blank" alt="" />
+        </map>
+    </div>
+    <script type="text/javascript">
+        $(function(){
+            var changeSize = function(_btnPos){
+                var _w = 50 + ((_btnPos*100) / 2 );
+                $(".resize_map").css("width", _w+"%");
+        
+                autoMap.printMap();
+            }
+        
+            sObj.createObj({
+                rangeTarget : "first", // range body ID
+                rangeLog : "log", // range value target ID
+                rangeContClass : "rangeContBtn", // range btn style class
+                callBack:changeSize // callback function
+            });
+        
+            initSnippet();
+        
+            $('#first').on("selectstart", function(event){ return false; });
+            $('#first').on("dragstart", function(event){ return false; });
+        });
+        
+        function initSnippet() {
+            var snippet = $('pre code');
+            hljs.highlightBlock(snippet.get(0));
+            hljs.highlightBlock(snippet.get(1));
+        }
+        </script>
+</body>
+</html>

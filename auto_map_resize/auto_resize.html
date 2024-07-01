@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="./automap.js"></script>
+</head>
+<body>
+    <div class="img_re">
+        <img src="./img.jpg" alt="" usemap="#img_01">
+        <map name="img_01" map-autoresize map-size="400">
+            <area shape="rect" coords="63, 202, 350, 273" href="#" target="_blank" alt="" />
+        </map>
+    </div>
+    <!--
+        1. auto_map.js 를 사용하고자 하는 곳의 <map> 태그에 map-autoresize 를 추가해주시면 기본적인 사용준비는 끝.
+
+        2. map-size="" 에는 원본 이미지 사이즈(가로 사이즈)를 적어주세요. (좌표값 계산에 기준이 됩니다.)
+
+        3. map-size를 설정하지 않으면 기본 640으로 고정됩니다. (모바일 기본 이미지 가로 사이즈 640)
+
+        4. 아래의 이미지는 원본 가로 사이즈가 700입니다.
+
+        ※ 탭 내부에 사용할 경우, 탭 제이쿼리 함수 내부에서 오토맵을 한번 더 불러주어야 합니다.
+        (숨김처리 될 때 이미지 사이즈가 0으로 바뀌게 되므로, 다시 한번 autoMap.printMap(); 불러야 정상작동 함)
+
+        autoMap.printMap(); 사용후 적용이안될시 config.resizeMap(-1) 사용하시면됩니다.
+    -->
+</body>
+</html>
