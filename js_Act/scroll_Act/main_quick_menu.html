@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>main_quick_menu</title>
+    <!--
+        header 아래로 스크롤 진입시 position:fixed,
+        lock 버튼 클릭시 position:absolute,
+        top 버튼 클릭시 최상단으로 이동 애니메이션,
+        bottom 버튼 클릭시 최하단으로 이동 애니메이션 
+     -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <style>
+        /* reset */
+        *{margin:0;padding:0;box-sizing:border-box;}
+        ul li{list-style:none;}
+        a{color:#3d3d3d}
+        /* css */
+        .wrap{width:100%;position:relative;}
+        .wrap .inner{width:1000px;margin:0 auto;}
+        #header{position:sticky;top:0;left:0;width:100%;height:100px;background:pink;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:1;}
+        .main_visual{height:500px;background:honeydew;display:flex;align-items:center;justify-content:center;font-size:30px;}
+        [class^=cont]{background:lavenderblush;height:500px;display:flex;align-items:center;justify-content:center;font-size:30px;}
+        .cont02{background:lightyellow}
+        .cont03{background:lightcyan}
+        .cont04{background:lightskyblue}
+        .cont05{background:lemonchiffon}
+        /* quick */
+        .main_q_list{position:absolute;top:680px;left:50%;margin-left:600px;z-index:0;}
+        .main_q_list .q_list_wrap{border-radius:6px;box-shadow:0 0 20px 0 rgba(51, 51, 51, .1);background-color:#fff;overflow:hidden;}
+        .main_q_list .q_list_wrap .list_box{padding:8px 14px 0;}
+        .main_q_list .q_list_wrap .list_box > ul{    padding-bottom:8px;}
+        .main_q_list .q_list_wrap .list_box > ul li{border-bottom:1px solid hsla(0, 0%, 87%, .5);}
+        .main_q_list .q_list_wrap .list_box > ul li:last-of-type{border-bottom:none;}
+        .main_q_list .q_list_wrap .list_box > ul li a{display:block;padding:10px 0;font-size:14px;letter-spacing:-.98px;text-align:left;color:#666;}
+        .main_q_list .q_list_wrap .q_tool_list{background-color:hsla(0, 0%, 96%, .6);padding:0 13px;}
+        .main_q_list .q_list_wrap .q_tool_list li{border-bottom:1px solid hsla(0, 0%, 84%, .5);}
+        .main_q_list .q_list_wrap .q_tool_list li:last-of-type{border-bottom:none;}
+        .main_q_list .q_list_wrap .q_tool_list li a{padding:10px 0;display:block;font-size:14px;font-weight:600;text-align:center;color:#9a9a9a;width:100%;}
+        .main_q_list .q_list_wrap .q_tool_list li a i{background:url('https://gscdn.hackers.co.kr/champ/img/chobo/main/v1/icon_sp.png')-627px 0;width:12px;height:8px;display:inline-block;margin-left:3px;}
+        .main_q_list .q_list_wrap .q_tool_list li a.q-go-btm i{background-position:-639px 0;}
+        .main_q_list .q_list_wrap .q_tool_list li a.q-lock i{background-position:-658px 0;width:14px;height:14px;}
+        .main_q_list .q_list_wrap .q_tool_list li a.q-lock.on i{background-position:-674px 0;}
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div id="header">Header</div>
+        <div class="inner">
+            <div class="main_visual">main_visual</div>
+            <div class="cont01">cont01</div>
+            <div class="cont02">cont02</div>
+            <div class="cont03">cont03</div>
+            <div class="cont04">cont04</div>
+            <div class="cont05">cont05</div>
+        </div>
+        <div class="main_q_list">
+            <div class="q_list_wrap">
+                <img src="https://cdn.hackers.com/hackersingang/talk/img/main/talk_list_quick_top.png" alt="">
+                <div class="list_box">
+                    <ul>
+                        <li><a target="_self" href="javascript:void(0);">Menu 1</a></li>
+                        <li><a target="_self" href="javascript:void(0);">Menu 2</a></li>
+                        <li><a target="_self" href="javascript:void(0);">Menu 3</a></li>
+                        <li><a target="_self" href="javascript:void(0);">Menu 4</a></li>
+                        <li><a target="_self" href="javascript:void(0);">Menu 5</a></li>
+                    </ul>
+                </div>
+                <ul class="q_tool_list">
+                    <li><a class="q-go-top" href="javascript:void(0);" onclick="">TOP<i></i></a></li>
+                    <li><a class="q-go-btm" href="javascript:void(0);" onclick="">DOWN<i></i></a></li>
+                    <li><a class="q-lock" href="javascript:void(0);" onclick="talkLockEvt()">LOCK<i></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+<script>
+    if($('.main_q_list').length > 0){
+        talkQmenuEvt();
+    }
+
+    function talkQmenuEvt(){
+        var talkQuickFixed = false;
+
+        $(window).scroll(function(){
+
+            if(!($('.q-lock').hasClass('on'))){
+
+                var talkQuickMenu = $('.main_q_list'); // 퀵메뉴
+                var talkHeaderHeight = $('#header').height(); // header height
+                var talkMainSlideHeight = $('.main_visual').height(); //main_visual 영역 height
+                var talkMainTopAreaHeight = talkHeaderHeight + talkMainSlideHeight; // 메인 상단 height
+
+                var talkMainScrollTop = $(window).scrollTop();// window의 top값
+
+                if(talkMainScrollTop >= talkMainTopAreaHeight - 150){
+                    if(talkQuickFixed === false){
+                        talkQuickFixed = true;
+                        talkQuickMenu.css({'position' : 'fixed', 'top' : talkHeaderHeight + 30 + 'px'});
+                    }
+                }else if(talkMainScrollTop < talkMainTopAreaHeight){
+                    if(talkQuickFixed === true){
+                        talkQuickFixed = false;
+                        talkQuickMenu.css({'position' : 'absolute', 'top' : talkMainTopAreaHeight + 30 + 'px'});
+                    }
+                }
+
+            }
+
+        })
+    }
+
+    // top
+    $('.q-go-top').click(function () {
+        $('html, body').animate({
+            scrollTop: 0
+        }, 'slow');
+        return false;
+    });
+
+    // down
+    $('.q-go-btm').click(function () {
+        $('html, body').animate({
+            scrollTop: $(document).height()
+        }, 'slow');
+        return false;
+    });
+
+    // Lock
+    function talkLockEvt(){
+        var talkQmenuDiv = $('.main_q_list');
+        var talkLockBtn = $('.q-lock');
+
+        if(!(talkLockBtn.hasClass('on'))){
+            var talkQuickMenuTop = talkQmenuDiv.offset().top;//  퀵메뉴 현재 위치 top값
+            talkQmenuDiv.css({'position':'absolute', 'top' : talkQuickMenuTop + 'px'});
+            talkLockBtn.addClass('on');
+        }else{
+            talkLockBtn.removeClass('on');
+            talkQmenuEvt();
+        }
+    }
+</script>
+</body>
+</html>
